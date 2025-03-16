@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <fstream>
+#include<string>
 using namespace std;
 
 /*
@@ -94,7 +95,7 @@ void signUp(string user, string password)
 bool signIn(string user, string password)
 {
 
-    if (user == "admin" && password == "1234")
+    if (user == "admin" && password == "123")
     {
 
         system("cls");
@@ -283,15 +284,18 @@ void NumberofBooks() {
     cout << "\n===================================================\n";
     cout << "               LIBRARY BOOKS LIST                  ";
     cout << "\n===================================================\n";
-while (getline(file,line))
+while (file.eof()==0)
 {
+    getline(file,line);
     cout<<line<<endl;
+    
 }
+
 file.close();
 
   
     cout << "\n===================================================\n";
-    getchar();
+    getch();
     Booksmanagement();
 }
 
@@ -309,7 +313,8 @@ void additionofBook() {
     cout << "\n===================================================\n";
 
     string line;
-    while (getline(inFile, line)) {
+    while (inFile.eof()==0) {
+        getline(inFile,line);
         cout << line << endl;
     }
     inFile.close(); 
@@ -342,6 +347,6 @@ void additionofBook() {
     cout << "\n Book added successfully!\n";
 
     outFile.close();
-    getchar();
+    getch();
     Booksmanagement();
 }
